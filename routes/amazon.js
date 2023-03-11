@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO Amazon Controller
-
+const amazonController = require('../controllers/amazon');
 // TODO Validator
 
 

@@ -2,8 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 
-//ADDED SWAGGER ROUTES
+//Added Swagger Routes
 router.use('/', require('./swagger'));
+
+
+
+//  Added Amazon Routes
+router.use('/', require('./amazon'));
 
 
 

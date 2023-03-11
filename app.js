@@ -14,5 +14,18 @@ app.get('/', (req, res) => {
 });
 
 
+app
+	.use(bodyParser.json())
+	.use((req, res, next) => {
+		res.setHeader('Access-Control-Allow-Origin', '*');
+		next();
+	})
+	.use('/', require('./routes'));
+
+
+
+
+
+
 // Swagger route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

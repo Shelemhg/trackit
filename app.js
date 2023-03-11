@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger-output.json');
+
 
 const port = process.env.PORT || 3000;
 
@@ -21,11 +20,3 @@ app
 		next();
 	})
 	.use('/', require('./routes'));
-
-
-
-
-
-
-// Swagger route
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

@@ -9,9 +9,9 @@ router.get('/', amazonController.getAll);
 
 router.get('/:asin', amazonController.getSingle);
 
-router.post('/', validateCreateProduct, amazonController.createProduct);
+router.post('/', amazonController.createProduct);
 
-router.put('/:asin', validateCreateProduct, amazonController.updateProduct);
+router.put('/:asin', amazonController.updateProduct);
 
 router.delete('/:asin', amazonController.deleteProduct);
 

@@ -6,7 +6,7 @@ const swaggerDocument = require('../swagger-output.json');
 
 
 // Swagger route
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 

@@ -39,6 +39,25 @@ content-type: application/json
     "comment": "$55 Shipping + Import"
 }
 
+### DELETE product 
+DELETE http://localhost:3000/amazon/B09ZSPJLNS HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

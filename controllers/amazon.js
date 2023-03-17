@@ -134,7 +134,24 @@ const updateProduct = async (req, res) => {
 
 
 const deleteProduct = async (req, res) => {
-    
+    try {
+        const asinSearch =  req.params.asin;
+        const response = await mongodb
+            .getDb()
+            .db(database)
+            .collection(collection)
+            .deleteOne({ asin : asinSearch }, true);
+            console.log(response);
+        if (response.deletedCount > 0) {
+            res.status(200).send();
+            console.log(asinSearch + ' product DELETED');
+        } else {
+            res.status(500).json(response.error || 'An error occurred while deleting the product.');
+            console.log('Unable to Delete');
+        }
+    } catch (err5) {
+		res.status(500).json(err5);
+    }
 };
 
 module.exports = { 

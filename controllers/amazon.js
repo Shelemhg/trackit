@@ -10,12 +10,12 @@ const collection = require('../config/db.config.js').collection;
 
 const getAll = async (req, res, next) => {
     try {
-        const result = await mongodb
+        mongodb
             .getDb()
             .db(database)
             .collection(collection)
-            .find();
-        result.toArray().then((lists) => {
+            .find()
+            .toArray().then((lists) => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200)
             .json(lists);
@@ -25,24 +25,41 @@ const getAll = async (req, res, next) => {
         console.log(err1.message);
 	}
 
-    // mongodb
-    //     .getDb()
-    //     .db(database)
-    //     .collection(collection)
-    //     .find()
-    //     .toArray((err, lists) => {
-    //         if (err) {
-    //             res.status(500).json({ message: err });
-    //         }
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.status(200)
-    //     .json(lists);
-    // });
+    // try {
+    //     const result = await mongodb
+    //         .getDb()
+    //         .db(database)
+    //         .collection(collection)
+    //         .find();
+    //     result.toArray().then((lists) => {
+    //         res.setHeader('Content-Type', 'application/json');
+    //         res.status(200)
+    //         .json(lists);
+    //     });
+    // } catch (err1) {
+	// 	res.status(500).json(err1);
+    //     console.log(err1.message);
+	// }
 };
 
 
 const getSingle = async (req, res, next) => {
-    
+    try {
+        const asinSearch =  req.params.asin.toUpperCase();      
+        mongodb
+            .getDb()
+            .db(database)
+            .collection(collection)
+            .find({ asin: asinSearch })
+            .toArray().then((lists) => {
+                res.setHeader('Content-Type', 'application/json');
+                res.status(200)
+                .json(lists[0]);
+            });
+    } catch (err2){
+        res.status(500).json(err2);
+        console.log(err2.message);
+    }
 };
 
 

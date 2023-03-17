@@ -1,3 +1,7 @@
+const database = 'trackit';
+const collection = 'amazon';
+
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -13,4 +17,26 @@ const initDb = (callback) => {
     }
 
     MongoClient.connect(process.env.MONGODB_URI)
+        .then((client) => {
+            _db = client;
+            callback(null, _db);
+        })
+        .catch((err) => {
+            callback(err);
+        });
+};
+
+const getDb = () => {
+    if (!_db) {
+        throw Error('DB was not initialized');
+    }
+    return _db;
+};
+
+
+mondule.exports = {
+    database,
+    collection,
+    initDb,
+    getDb
 }

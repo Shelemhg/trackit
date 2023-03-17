@@ -1,42 +1,40 @@
 const database = 'trackit';
 const collection = 'amazon';
 
-
 const dotenv = require('dotenv');
 dotenv.config();
-
 
 const { MongoClient } = require('mongodb');
 
 let _db;
 
 const initDb = (callback) => {
-    if (_db) {
-        console.log('DB is already initialized');
-        return callback(null, _db);
-    }
+	if (_db) {
+		console.log('DB is already initialized!');
+		return callback(null, _db);
+	}
 
-    MongoClient.connect(process.env.MONGODB_URI)
-        .then((client) => {
-            _db = client;
-            callback(null, _db);
-        })
-        .catch((err) => {
-            callback(err);
-        });
+	MongoClient.connect(process.env.MONGODB_URI)
+		.then((client) => {
+		_db = client;
+		callback(null, _db);
+		})
+		.catch((err) => {
+		callback(err);
+		});
 };
 
 const getDb = () => {
-    if (!_db) {
-        throw Error('DB was not initialized');
-    }
-    return _db;
+	if (!_db) {
+		throw Error('DB not initialized');
+	}
+	return _db;
 };
 
 
-mondule.exports = {
-    database,
-    collection,
-    initDb,
-    getDb
-}
+module.exports = { 
+	database, 
+	collection,
+	initDb,
+	getDb
+};

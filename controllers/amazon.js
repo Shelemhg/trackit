@@ -64,7 +64,37 @@ const getSingle = async (req, res, next) => {
 
 
 const createProduct = async (req, res, next) => {
-    
+    try {
+        const newDate = new Date();
+
+        const newProduct = {
+            asin: req.body.asin.toUpperCase(),
+            title: req.body.title,
+            price: req.body.price,
+            date: newDate,
+            imageUrl: req.body.imageUrl,
+            quantity: req.body.quantity,
+            url: req.body.url,
+            comment: req.body.comment
+        };
+        const response = await mongodb    
+            .getDb()
+            .db(database)
+            .collection(collection)
+            .insertOne(newProduct);
+            
+        if (response.acknowledged) {
+            res.status(201)
+            .json(response);
+            console.log('Information saved to DB succesfully');
+        } else {
+            res.status(500)
+            .json(response.error || 'Some error occurred while creating the contact.');
+            console.log('Upload of info failed.');
+        }
+    } catch (err3) {
+		res.status(500).json(err3);
+    }
 };
 
 

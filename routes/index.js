@@ -8,7 +8,7 @@ router.use('/', require('./swagger'));
 
 
 //  Added Amazon Routes
-router.use('/', require('./amazon'));
+router.use('/amazon', require('./amazon'));
 
 
 

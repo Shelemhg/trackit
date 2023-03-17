@@ -99,7 +99,37 @@ const createProduct = async (req, res, next) => {
 
 
 const updateProduct = async (req, res) => {
-    
+    try {
+        const asinSearch =  req.params.asin;
+        const newDate = new Date();
+
+        const updatedProduct = {
+            asin: req.body.asin,
+            title: req.body.title,
+            price: req.body.price,
+            date: newDate,
+            imageUrl: req.body.imageUrl,
+            quantity: req.body.quantity,
+            url: req.body.url,
+            comment: req.body.comment
+        };
+        const response = await mongodb    
+            .getDb()
+            .db(database)
+            .collection(collection)
+            .replaceOne({ asin: asinSearch }, updatedProduct);
+        
+        if (response.modifiedCount > 0) {
+            res.status(204).json(response);
+            console.log('Product information updated in DB succesfully');
+        } else {
+            res.status(500).json(response.error || 'Some error occurred while updating the product.');
+            console.log('Update of product failed.');
+        }
+    } catch (err4) {
+		res.status(500);
+        console.log(err4);
+	}
 };
 
 

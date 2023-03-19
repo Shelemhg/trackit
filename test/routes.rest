@@ -59,16 +59,16 @@ DELETE http://localhost:3000/amazon/B09ZSPJLNS HTTP/1.1
 //            PRODUCTION Deploy
 ////////////////////////////////////////////////
 ###
-GET http://pricet.onrender.com/amazon
+GET https://trackit-km9j.onrender.com/amazon
 ###
-GET http://pricet.onrender.com/amazon/B09ZSPJLNS
+GET https://trackit-km9j.onrender.com/amazon/B09ZSPJLNS
 ###
-GET http://pricet.onrender.com/amazon/B081L5HJBP
+GET https://trackit-km9j.onrender.com/amazon/B081L5HJBP
 
 
 ###       CREATE new user       ###
 ###################################
-POST http://pricet.onrender.com/amazon/ HTTP/1.1
+POST https://trackit-km9j.onrender.com/amazon/ HTTP/1.1
 content-type: application/json
 
 { 
@@ -86,11 +86,11 @@ content-type: application/json
 
 
 ###
-GET http://pricet.onrender.com/amazon
+GET https://trackit-km9j.onrender.com/amazon
 
 ###       PUT contact       ###
 ###############################
-PUT http://pricet.onrender.com/amazon/B09ZSPJLNS HTTP/1.1
+PUT https://trackit-km9j.onrender.com/amazon/B09ZSPJLNS HTTP/1.1
 content-type: application/json
 
 { 
@@ -107,4 +107,4 @@ content-type: application/json
 
 
 ### DELETE product 
-DELETE http://pricet.onrender.com/amazon/B09ZSPJLNS HTTP/1.1
+DELETE https://trackit-km9j.onrender.com/amazon/B09ZSPJLNS HTTP/1.1

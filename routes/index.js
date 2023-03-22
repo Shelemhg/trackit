@@ -7,8 +7,6 @@ const { auth } = require('express-openid-connect');
 //Added Swagger Routes
 router.use('/', require('./swagger'));
 
-
-
 //  Added Amazon Routes
 router.use('/amazon', require('./amazon'));
 

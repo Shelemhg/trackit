@@ -3,13 +3,15 @@ const router = express.Router();
 
 const amazonController = require('../controllers/amazon');
 // TODO Validator
+const { validateCreateProduct } = require('../validations/newProductValidation')
+
 
 
 router.get('/', amazonController.getAll);
 
 router.get('/:asin', amazonController.getSingle);
 
-router.post('/', amazonController.createProduct);
+router.post('/', validateCreateProduct, amazonController.createProduct);
 
 router.put('/:asin', amazonController.updateProduct);
 

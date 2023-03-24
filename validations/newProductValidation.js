@@ -29,8 +29,6 @@ const validateCreateProduct = [
     }
 ];
 
-
-
 const validateUpdateProduct = [
     check('asin')
         .exists()
@@ -53,8 +51,24 @@ const validateUpdateProduct = [
 ];
 
 
+// TODO Correct the Delete validation to check if an ASIN code has been added at the end of the URL
+const validateDelete = [
+    check('asin')
+        .exists()
+        .notEmpty().withMessage('ASIN cannot be empty.'),
+    (req, res, next) => {
+        try {
+            validationResult(req).throw()
+            return next();
+        } catch (err) {
+            res.status(400);
+            res.send({ errors: err.array()});
+        }
+    }
+];
 
 module.exports = { 
     validateCreateProduct,
-    validateUpdateProduct
+    validateUpdateProduct,
+    validateDelete
  }

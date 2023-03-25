@@ -102,36 +102,11 @@ const updateProduct = async (req, res) => {
     try {
         const asinSearch =  req.params.asin;
         const newDate = new Date();
-        // Working variable with  replaceOne
-        const updatedProduct = {
-            asin: req.body.asin,
-            title: req.body.title,
-            price: req.body.price,
-            date: newDate,
-            imageUrl: req.body.imageUrl,
-            quantity: req.body.quantity,
-            url: req.body.url,
-            comment: req.body.comment
-        };
-
-        //     Update Operators example: { $set: { "a.2": <new value>, "a.10": <new value>, } }
-
-
-        // TODO  Complete a correct partial update of the Variable
         // TODO Check the correct update of the date
-        const testUpdate = {
-            $set: { 
-                "asin": req.body.asin,
-                "title": req.body.title,
-                "price": req.body.price,
-                "date": newDate,
-                "imageUrl": req.body.imageUrl,
-                "quantity": req.body.quantity,
-                "url": req.body.url,
-                "comment": req.body.comment,
-            }            
-        };
 
+        const updatedProduct = {
+            $set: req.body
+        };
 
         const response = await mongodb    
             .getDb()

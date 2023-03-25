@@ -119,36 +119,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "asin": {
-                  "example": "any"
-                },
-                "title": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                },
-                "imageUrl": {
-                  "example": "any"
-                },
-                "quantity": {
-                  "example": "any"
-                },
-                "url": {
-                  "example": "any"
-                },
-                "comment": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {

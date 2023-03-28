@@ -4,19 +4,19 @@ const router = express.Router();
 const { auth } = require('express-openid-connect');
 
 
-//Added Swagger Routes
+// Swagger Route
 router.use('/', require('./swagger'));
 
-//  Added Amazon Routes
+//  Amazon Route
 router.use('/amazon', require('./amazon'));
 
-// TODO ebay 
+// Ebay Route 
 router.use('/ebay', require('./ebay'));
 
-//  TODO  Alibaba(Sifundo)
+//  Alibaba Route
 router.use('/alibaba', require('./alibaba'));
 
-//  TODO  Aliexpress (Shelem)
+//  Aliexpress Route
 router.use('/aliexpress', require('./aliexpress'));
 
 // Auth0 config and routes
@@ -29,13 +29,13 @@ const config = {
     issuerBaseURL: process.env.ISSUER_BASE_URL
 };
 
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-router.use(auth(config));
+// // auth router attaches /login, /logout, and /callback routes to the baseURL
+// router.use(auth(config));
 
-// req.isAuthenticated is provided from the auth router
-router.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
+// // req.isAuthenticated is provided from the auth router
+// router.get('/', (req, res) => {
+//     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+// });
 
 
 

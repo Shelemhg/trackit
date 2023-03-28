@@ -13,12 +13,12 @@ router.use('/amazon', require('./amazon'));
 
 
 
-// Oauth config and routes
+// Auth0 config and routes
 const config = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.SECRET,
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://trackit-km9j.onrender.com',
     clientID: process.env.CLIENT_ID,
     issuerBaseURL: process.env.ISSUER_BASE_URL
 };

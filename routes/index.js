@@ -20,14 +20,14 @@ router.use('/alibaba', require('./alibaba'));
 router.use('/aliexpress', require('./aliexpress'));
 
 // Auth0 config and routes
-const config = {
-    authRequired: false,
-    auth0Logout: true,
-    secret: process.env.SECRET,
-    baseURL: 'https://trackit-km9j.onrender.com',
-    clientID: process.env.CLIENT_ID,
-    issuerBaseURL: process.env.ISSUER_BASE_URL
-};
+// const config = {
+//     authRequired: false,
+//     auth0Logout: true,
+//     secret: process.env.SECRET,
+//     baseURL: 'https://trackit-km9j.onrender.com',
+//     clientID: process.env.CLIENT_ID,
+//     issuerBaseURL: process.env.ISSUER_BASE_URL
+// };
 
 // // auth router attaches /login, /logout, and /callback routes to the baseURL
 // router.use(auth(config));

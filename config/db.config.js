@@ -1,5 +1,8 @@
 const database = 'trackit';
-const collection = 'amazon';
+const collectionAmazon = 'amazon';
+const collectionAliexpress = 'aliexpress';
+const collectionAlibaba = 'alibaba';
+const collectionEbay = 'eBay';
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -34,7 +37,10 @@ const getDb = () => {
 
 module.exports = { 
 	database, 
-	collection,
+	collectionAmazon,
+	collectionAliexpress,
+	collectionAlibaba,
+	collectionEbay,
 	initDb,
 	getDb
 };

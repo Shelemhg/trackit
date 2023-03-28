@@ -4,9 +4,9 @@ const router = express.Router();
 const amazonController = require('../controllers/amazon');
 // TODO Validator
 const {
-    validateCreateProduct, 
-    validateUpdateProduct,
-    validateDelete} = require('../validations/newProductValidation')
+    validateCreateProductAmazon, 
+    validateUpdateProductAmazon,
+    validateDeleteAmazon} = require('../validations/newProductValidationAmazon')
 
 
 
@@ -14,12 +14,12 @@ router.get('/', amazonController.getAll);
 
 router.get('/:asin', amazonController.getSingle);
 
-router.post('/', validateCreateProduct, amazonController.createProduct);
+router.post('/', validateCreateProductAmazon, amazonController.createProduct);
 
-router.put('/:asin', validateUpdateProduct, amazonController.updateProduct);
+router.put('/:asin', validateUpdateProductAmazon, amazonController.updateProduct);
 
 // TODO: Possibly add the validateDelete function after fixing it
-router.delete('/:asin', amazonController.deleteProduct);
+router.delete('/:asin', validateDeleteAmazon, amazonController.deleteProduct);
 
 
 

@@ -10,8 +10,14 @@ router.use('/', require('./swagger'));
 //  Added Amazon Routes
 router.use('/amazon', require('./amazon'));
 
+// TODO ebay 
+router.use('/ebay', require('./ebay'));
 
+//  TODO  Alibaba(Sifundo)
+router.use('/alibaba', require('./alibaba'));
 
+//  TODO  Aliexpress (Shelem)
+router.use('/aliexpress', require('./aliexpress'));
 
 // Auth0 config and routes
 const config = {

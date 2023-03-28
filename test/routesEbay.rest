@@ -1,0 +1,81 @@
+// LOCALHOST
+###
+GET http://localhost:3000/ebay
+###
+GET http://localhost:3000/ebay/B09ZSPJLNS
+###
+
+###       CREATE new user       ###
+###################################
+POST http://localhost:3000/ebay/ HTTP/1.1
+content-type: application/json
+
+{ 
+   "epid": "B09ZSPJLNS",
+    "title": "Lancome Multi-Vital SPF 30 Sunscreen Cream - 1.7oz",
+    "price": "43.99",
+    "date": "3.22.2-2023-02-03",
+    "imageUrl": "https://i.ebayimg.com/images/g/LeIAAOSwlPRjfXSs/s-l640.jpg",
+    "quantity": "3",
+    "url": "https://www.ebay.com/p/2255473542?iid=404187424542",
+    "comment": "$55 Shipping + Import"
+}
+
+
+
+
+###
+GET http://localhost:3000/ebay
+
+###       UPDATE contact       ###
+###############################
+
+### DELETE product 
+DELETE http://localhost:3000/ebay/B09ZSPJLNS HTTP/1.1
+
+
+
+
+
+
+
+//            PRODUCTION Deploy
+////////////////////////////////////////////////
+###
+GET https://trackit-km9j.onrender.com/ebay
+###
+GET https://trackit-km9j.onrender.com/ebay/B09ZSPJLNS
+###
+
+
+
+###       CREATE new user       ###
+###################################
+POST https://trackit-km9j.onrender.com/ebay/ HTTP/1.1
+content-type: application/json
+
+{ 
+    "ePID": "B09ZSPJLNS",
+    "title": "Lancôme Multi-Vital SPF 30 Sunscreen Cream - 1.7oz",
+    "price": "43.99",
+    "date": "3.22.2-2023-02-03",
+    "imageUrl": "https://i.ebayimg.com/images/g/LeIAAOSwlPRjfXSs/s-l640.jpg",
+    "quantity": "3",
+    "url": "https://www.ebay.com/p/2255473542?iid=404187424542",
+    "comment": "$55 Shipping + Import"
+}
+
+
+
+
+###
+GET https://trackit-km9j.onrender.com/ebay
+
+###       PUT contact       ###
+###############################
+
+
+
+
+### DELETE product 
+DELETE https://trackit-km9j.onrender.com/ebay/B09ZSPJLNS HTTP/1.1

@@ -2,7 +2,7 @@ const mongodb = require('../config/db.config.js');
 
 //  Names of the Database and Collections from the db.config file
 const database = require('../config/db.config.js').database;
-const collectionAmazon = require('../config/db.config.js').collectionAmazon;
+const collectionAliexpress = require('../config/db.config.js').collectionAliexpress;
 
 
 
@@ -13,7 +13,7 @@ const getAll = async (req, res, next) => {
         mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAliexpress)
             .find()
             .toArray().then((lists) => {
             res.setHeader('Content-Type', 'application/json');
@@ -29,12 +29,12 @@ const getAll = async (req, res, next) => {
 
 const getSingle = async (req, res, next) => {
     try {
-        const asinSearch =  req.params.asin.toUpperCase();      
+        const skuSearch =  req.params.sku.toUpperCase();      
         mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
-            .find({ asin: asinSearch })
+            .collection(collectionAliexpress)
+            .find({ sku: skuSearch })
             .toArray().then((lists) => {
                 res.setHeader('Content-Type', 'application/json');
                 res.status(200)
@@ -52,7 +52,7 @@ const createProduct = async (req, res, next) => {
         const newDate = new Date();
 
         const newProduct = {
-            asin: req.body.asin.toUpperCase(),
+            sku: req.body.sku.toUpperCase(),
             title: req.body.title,
             price: req.body.price,
             date: newDate,
@@ -64,7 +64,7 @@ const createProduct = async (req, res, next) => {
         const response = await mongodb    
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAliexpress)
             .insertOne(newProduct);
             
         if (response.acknowledged) {
@@ -84,7 +84,7 @@ const createProduct = async (req, res, next) => {
 
 const updateProduct = async (req, res) => {
     try {
-        const asinSearch =  req.params.asin;
+        const skuSearch =  req.params.sku;
         const newDate = new Date();
         // TODO Check the correct update of the date
 
@@ -95,8 +95,8 @@ const updateProduct = async (req, res) => {
         const response = await mongodb    
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
-            .updateOne({ asin: asinSearch }, updatedProduct);
+            .collection(collectionAliexpress)
+            .updateOne({ sku: skuSearch }, updatedProduct);
         
         if (response.modifiedCount > 0) {
             res.status(204).json(response);
@@ -114,16 +114,16 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     try {
-        const asinSearch =  req.params.asin;
+        const skuSearch =  req.params.sku;
         const response = await mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
-            .deleteOne({ asin : asinSearch }, true);
+            .collection(collectionAliexpress)
+            .deleteOne({ sku : skuSearch }, true);
             console.log(response);
         if (response.deletedCount > 0) {
             res.status(200).send();
-            console.log(asinSearch + ' product DELETED');
+            console.log(skuSearch + ' product DELETED');
         } else {
             res.status(500).json(response.error || 'An error occurred while deleting the product.');
             console.log('Unable to Delete');

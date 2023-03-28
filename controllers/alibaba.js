@@ -2,7 +2,7 @@ const mongodb = require('../config/db.config.js');
 
 //  Names of the Database and Collections from the db.config file
 const database = require('../config/db.config.js').database;
-const collectionAmazon = require('../config/db.config.js').collectionAmazon;
+const collectionAlibaba = require('../config/db.config.js').collectionAlibaba;
 
 
 
@@ -13,7 +13,7 @@ const getAll = async (req, res, next) => {
         mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAlibaba)
             .find()
             .toArray().then((lists) => {
             res.setHeader('Content-Type', 'application/json');
@@ -33,7 +33,7 @@ const getSingle = async (req, res, next) => {
         mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAlibaba)
             .find({ asin: asinSearch })
             .toArray().then((lists) => {
                 res.setHeader('Content-Type', 'application/json');
@@ -64,7 +64,7 @@ const createProduct = async (req, res, next) => {
         const response = await mongodb    
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAlibaba)
             .insertOne(newProduct);
             
         if (response.acknowledged) {
@@ -91,11 +91,11 @@ const updateProduct = async (req, res) => {
         const updatedProduct = {
             $set: req.body
         };
-
+        
         const response = await mongodb    
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAlibaba)
             .updateOne({ asin: asinSearch }, updatedProduct);
         
         if (response.modifiedCount > 0) {
@@ -118,7 +118,7 @@ const deleteProduct = async (req, res) => {
         const response = await mongodb
             .getDb()
             .db(database)
-            .collection(collectionAmazon)
+            .collection(collectionAlibaba)
             .deleteOne({ asin : asinSearch }, true);
             console.log(response);
         if (response.deletedCount > 0) {

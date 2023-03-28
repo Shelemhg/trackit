@@ -6,7 +6,7 @@ const aliexpressController = require('../controllers/aliexpress');
 const {
     validateCreateProductAliexpress, 
     validateUpdateProductAliexpress,
-    validateDeleteAliexpress} = require('../validations/newProductValidationAliexpress')
+    validateDeleteAliexpress} = require('../validations/aliexpressValidation')
 
 
 

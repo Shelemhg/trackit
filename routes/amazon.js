@@ -6,7 +6,7 @@ const amazonController = require('../controllers/amazon');
 const {
     validateCreateProductAmazon, 
     validateUpdateProductAmazon,
-    validateDeleteAmazon} = require('../validations/newProductValidationAmazon')
+    validateDeleteAmazon} = require('../validations/amazonValidation')
 
 
 

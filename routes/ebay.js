@@ -6,7 +6,7 @@ const ebayController = require('../controllers/ebay');
 const {
     validateCreateProductEbay, 
     // validateUpdateProductE,
-    validateDeleteEbay} = require('../validations/newProductValidationEbay')
+    validateDeleteEbay} = require('../validations/ebayValidation')
 
 
 

@@ -6,7 +6,7 @@ const alibabaController = require('../controllers/alibaba');
 const {
     validateCreateProductAlibaba, 
     validateUpdateProductAlibaba,
-    validateDeleteAlibaba} = require('../validations/newProductValidationAlibaba')
+    validateDeleteAlibaba} = require('../validations/alibabaValidation')
 
 
 

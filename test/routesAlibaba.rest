@@ -1,61 +1,3 @@
-// LOCALHOST
-###
-GET http://localhost:3000/alibaba
-###
-GET http://localhost:3000/alibaba/B09ZSPJLNS
-###
-GET http://localhost:3000/alibaba/B081L5HJBP
-
-
-###       CREATE new user       ###
-###################################
-POST http://localhost:3000/alibaba/ HTTP/1.1
-content-type: application/json
-
-{ 
-    "asin": "B09ZSPJLNS",
-    "title": "HUAWEI Watch GT 3 Pro 46 mm GPS + Bluetooth Smartwatch (Grey Leather) - International Version",
-    "price": "389.00",
-    "date": "3.22.2-2023-02-03",
-    "imageUrl": "https://m.media-amazon.com/images/I/61ez4hcV+eL._AC_SL1000_.jpg",
-    "quantity": "19",
-    "url": "https://www.amazon.com/HUAWEI-Watch-Bluetooth-Smartwatch-Leather/dp/B09ZSPJLNS/ref=sr_1_2?crid=28RM3H9TXB9EH&keywords=HUAWEI+Watch+GT+3+Pro&qid=1675578826&sprefix=huawei+watch+gt+3+pro%2Caps%2C105&sr=8-2",
-    "comment": "$55 Shipping + Import"
-}
-
-
-
-
-###
-GET http://localhost:3000/alibaba
-
-###       UPDATE contact       ###
-###############################
-PUT http://localhost:3000/alibaba/B09ZSPJLNS HTTP/1.1
-content-type: application/json
-
-{ 
-    "asin": "B09ZSPJLNS",
-    "title": "HUAWEI Watch GT 6 Pro 46 mm GPS + Bluetooth Smartwatch (Grey Leather) - International Version",
-    "price": "389",
-    "date": "3.22.2-2023-02-03",
-    "imageUrl": "https://m.media-amazon.com/images/I/61ez4hcV+eL._AC_SL1000_.jpg",
-    "quantity": "19",
-    "url": "https://www.amazon.com/HUAWEI-Watch-Bluetooth-Smartwatch-Leather/dp/B09ZSPJLNS/ref=sr_1_2?crid=28RM3H9TXB9EH&keywords=HUAWEI+Watch+GT+3+Pro&qid=1675578826&sprefix=huawei+watch+gt+3+pro%2Caps%2C105&sr=8-2",
-    "comment": "$55 Shipping + Import"
-}
-
-
-
-### DELETE product 
-DELETE http://localhost:3000/alibaba/B09ZSPJLNS HTTP/1.1
-
-
-
-
-
-
-
 //            PRODUCTION Deploy
 ////////////////////////////////////////////////
 ###
@@ -83,8 +25,6 @@ content-type: application/json
 }
 
 
-
-
 ###
 GET https://trackit-km9j.onrender.com/alibaba
 
@@ -104,7 +44,67 @@ content-type: application/json
     "comment": "$55 Shipping + Import"
 }
 
+### DELETE product 
+DELETE https://trackit-km9j.onrender.com/alibaba/B09ZSPJLNS HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+// LOCALHOST
+###
+GET http://localhost:3000/alibaba
+###
+GET http://localhost:3000/alibaba/B09ZSPJLNS
+###
+GET http://localhost:3000/alibaba/B081L5HJBP
+
+
+###       CREATE new user       ###
+###################################
+POST http://localhost:3000/alibaba/ HTTP/1.1
+content-type: application/json
+
+{ 
+    "asin": "B09ZSPJLNS",
+    "title": "HUAWEI Watch GT 3 Pro 46 mm GPS + Bluetooth Smartwatch (Grey Leather) - International Version",
+    "price": "389.00",
+    "date": "3.22.2-2023-02-03",
+    "imageUrl": "https://m.media-amazon.com/images/I/61ez4hcV+eL._AC_SL1000_.jpg",
+    "quantity": "19",
+    "url": "https://www.amazon.com/HUAWEI-Watch-Bluetooth-Smartwatch-Leather/dp/B09ZSPJLNS/ref=sr_1_2?crid=28RM3H9TXB9EH&keywords=HUAWEI+Watch+GT+3+Pro&qid=1675578826&sprefix=huawei+watch+gt+3+pro%2Caps%2C105&sr=8-2",
+    "comment": "$55 Shipping + Import"
+}
+
+###
+GET http://localhost:3000/alibaba
+
+###       UPDATE contact       ###
+###############################
+PUT http://localhost:3000/alibaba/B09ZSPJLNS HTTP/1.1
+content-type: application/json
+
+{ 
+    "asin": "B09ZSPJLNS",
+    "title": "HUAWEI Watch GT 6 Pro 46 mm GPS + Bluetooth Smartwatch (Grey Leather) - International Version",
+    "price": "389",
+    "date": "3.22.2-2023-02-03",
+    "imageUrl": "https://m.media-amazon.com/images/I/61ez4hcV+eL._AC_SL1000_.jpg",
+    "quantity": "19",
+    "url": "https://www.amazon.com/HUAWEI-Watch-Bluetooth-Smartwatch-Leather/dp/B09ZSPJLNS/ref=sr_1_2?crid=28RM3H9TXB9EH&keywords=HUAWEI+Watch+GT+3+Pro&qid=1675578826&sprefix=huawei+watch+gt+3+pro%2Caps%2C105&sr=8-2",
+    "comment": "$55 Shipping + Import"
+}
+
 
 
 ### DELETE product 
-DELETE https://trackit-km9j.onrender.com/alibaba/B09ZSPJLNS HTTP/1.1
+DELETE http://localhost:3000/alibaba/B09ZSPJLNS HTTP/1.1
+

@@ -1,3 +1,5 @@
+// app.js
+
 const express = require("express");
 const app = express();
 const mongodb = require('./config/db.config.js');
@@ -19,7 +21,8 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.SECRET,
-    baseURL: 'https://trackit-km9j.onrender.com',
+    // baseURL: 'https://trackit-km9j.onrender.com',
+	baseURL: 'http://localhost:3000',  // Local development URL
     clientID: process.env.CLIENT_ID,
     issuerBaseURL: process.env.ISSUER_BASE_URL
 };
@@ -50,6 +53,6 @@ mongodb.initDb((err, mongodb) => {
 		console.log(err);
 	} else {
 		app.listen(port);
-		console.log(`\nConnected to DB and listening on ${port}\n`);
+		console.log(`\nConnected to DB and listening on port: ${port}\n`);
 	}
 });

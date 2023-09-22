@@ -1,3 +1,6 @@
+// controllers/amazon.js
+
+
 const mongodb = require('../config/db.config.js');
 
 //  Names of the Database and Collections from the db.config file

@@ -1,14 +1,13 @@
 {
   "name": "trackit",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "swagger-autogen": "node ./swagger.js"
   },
-  "author": "",
+  "author": "Shelem H.",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -21,5 +20,17 @@
   },
   "devDependencies": {
     "swagger-autogen": "^2.23.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shelemhg/trackit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shelemhg/trackit/issues"
+  },
+  "homepage": "https://github.com/Shelemhg/trackit#readme",
+  "description": ""
 }

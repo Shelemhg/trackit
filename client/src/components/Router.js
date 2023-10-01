@@ -1,39 +1,41 @@
 import Header from './Header';
 import Footer from './Footer';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
+import HomePage from '../pages/Home';
+import LoginPage from '../pages/Login';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 
-
-export default function Router () {
-    
+export default function Router() {
+    // General Layout for all pages. The Outlet is the React component for general content of the page
     const Layout = () => {
-		return (
-			<>
-				<Header />
-				<Outlet />
-				<Footer />			
-			</>
-		)
-	}
+        return (
+            <>
+                <Header />
+                <Outlet />
+                <Footer />
+            </>
+        );
+    }
+
 
     const BrowserRoutes = () => {
         return (
             <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Layout />} >
-                            <Route path="/" element={<Home />} />
-                            <Route path="login" element={<Login />}/>
-                        </Route>
+                {/* Routes component defines the routes of the application */}
+                <Routes>
+                    {/* The root route ('/') uses the Layout component */}
+                    <Route path="/" element={<Layout />}>
+                        {/* Child route for the home page */}
+                        <Route path="/" element={<HomePage />} />
+                        {/* Child route for the login page */}
+                        <Route path="login" element={<LoginPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        );
+    }
 
-                    </Routes>
-                
-                </BrowserRouter>
-            )
-        }
-
-
-    return(
+    // Render the routing configuration.
+    return (
         <BrowserRoutes />
-    )
+    );
 }

@@ -12,10 +12,8 @@ export default function Header(){
             {/* <img src={require('../assets/images/logo2.png')} alt="logo"></img> */}
 			
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
                 <li><a href="#">Features</a></li>
                 <li><a href="#">Pricing</a></li>
-                <li><a href="#">Sign Up</a></li>
                 <li><a href="/login">Login</a></li>
             </ul>
 		</nav>

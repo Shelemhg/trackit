@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import Router from './components/Router';
 
@@ -13,5 +12,3 @@ export default function App() {
 		</>
 	);
 }
-
-// export default App;
